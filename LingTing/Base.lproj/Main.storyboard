@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F2411" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--Start Interface View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LTADStartInterfaceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="StartImageLayer">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_register_background" translatesAutoresizingMaskIntoConstraints="NO" id="nkK-rd-20G" userLabel="StartImage">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7P-7J-sxZ" userLabel="ADLayer">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j6V-jv-whT" userLabel="AD">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yq-WT-Yau">
+                                        <rect key="frame" x="315" y="20" width="40" height="40"/>
+                                        <color key="backgroundColor" red="0.17294368760000001" green="1" blue="0.13454820510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="RhI-nc-6Fy"/>
+                                            <constraint firstAttribute="height" constant="40" id="gFI-EG-d3N"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5yq-WT-Yau" secondAttribute="trailing" constant="20" id="7Og-xI-hnC"/>
+                                    <constraint firstAttribute="trailing" secondItem="j6V-jv-whT" secondAttribute="trailing" id="8Lo-xG-VwE"/>
+                                    <constraint firstItem="j6V-jv-whT" firstAttribute="top" secondItem="k7P-7J-sxZ" secondAttribute="top" id="R2d-Dg-d4G"/>
+                                    <constraint firstAttribute="bottom" secondItem="j6V-jv-whT" secondAttribute="bottom" id="Vqc-aa-3RT"/>
+                                    <constraint firstItem="5yq-WT-Yau" firstAttribute="top" secondItem="k7P-7J-sxZ" secondAttribute="top" constant="20" id="XOS-bV-MDu"/>
+                                    <constraint firstItem="j6V-jv-whT" firstAttribute="leading" secondItem="k7P-7J-sxZ" secondAttribute="leading" id="nBq-s1-2Wk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nkK-rd-20G" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="CD9-FS-Xse"/>
+                            <constraint firstAttribute="trailing" secondItem="k7P-7J-sxZ" secondAttribute="trailing" id="GbF-LY-Tgh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="k7P-7J-sxZ" secondAttribute="bottom" id="I2P-F1-Bfu"/>
+                            <constraint firstItem="nkK-rd-20G" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XV0-Iw-fdK"/>
+                            <constraint firstItem="k7P-7J-sxZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="dKr-qb-o7p"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nkK-rd-20G" secondAttribute="bottom" id="iUm-KD-uVZ"/>
+                            <constraint firstAttribute="trailing" secondItem="nkK-rd-20G" secondAttribute="trailing" id="rfx-V9-YtS"/>
+                            <constraint firstItem="k7P-7J-sxZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xar-Nw-Xxl"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="ADTimerBtn" destination="5yq-WT-Yau" id="NRD-e3-uAU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="login_register_background" width="320" height="568"/>
+    </resources>
+</document>
