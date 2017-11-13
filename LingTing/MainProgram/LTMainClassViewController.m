@@ -35,26 +35,26 @@
 
 - (void) setStructs
 {
-    //create all ViewController.
+    //Left Controller
     self.leftVC = [[LTLeftViewController alloc] init];
-    self.rightVC = [[LTRightViewController alloc] init];
+    self.leftVC.view.frame = CGRectMake(0, 0, leftRightVCWidth, ScreenH);
+    [self addChildViewController:self.leftVC];
+    [self.view addSubview:self.leftVC.view];
     
+
+    //Right Controller
+    #if isRightNavigationItemButton
+    self.rightVC = [[LTRightViewController alloc] init];
+    self.rightVC.view.frame = CGRectMake(ScreenW - leftRightVCWidth, 0, leftRightVCWidth, ScreenH);
+    [self addChildViewController:self.rightVC];
+    [self.view addSubview:self.rightVC.view];
+    #endif
+    
+    //Center Controller
     LTPreviewWorksVC* pwVC = [[LTPreviewWorksVC alloc] init];
     self.pwNC = [[UINavigationController alloc] initWithRootViewController:pwVC];
-    
-    //set frame for left,right,center ViewController.
-    self.leftVC.view.frame = CGRectMake(0, 0, leftRightVCWidth, ScreenH);
-    self.rightVC.view.frame = CGRectMake(ScreenW - leftRightVCWidth, 0, leftRightVCWidth, ScreenH);
     self.pwNC.view.frame = [UIScreen mainScreen].bounds;
-    
-    //add child ViewController.
-    [self addChildViewController:self.leftVC];
-    [self addChildViewController:self.rightVC];
     [self addChildViewController:self.pwNC];
-    
-    //add view.
-    [self.view addSubview:self.leftVC.view];
-    [self.view addSubview:self.rightVC.view];
     [self.view addSubview:self.pwNC.view];
     
 //    //add navigation left item.
@@ -82,11 +82,12 @@
         leftB;
     });
     
-    
+    #if isRightNavigationItemButton
     pwVC.navigationItem.rightBarButtonItem = ({
         UIBarButtonItem *rightB = [[UIBarButtonItem alloc] initWithTitle:@"右边" style:(UIBarButtonItemStylePlain) target:self action:@selector(rightAction:)];
         rightB;
     });
+    #endif
 }
 
 - (void) addTapGestureOnPreviewWorksVC
@@ -102,12 +103,14 @@
      {
          if (self.pwNC.view.center.x > self.view.center.x) {
              
-             [self rightAction:nil];
-         }
-         else if (self.pwNC.view.center.x < self.view.center.x){
-
              [self leftAction:nil];
          }
+         #if isRightNavigationItemButton
+         else if (self.pwNC.view.center.x < self.view.center.x){
+             
+             [self rightAction:nil];
+         }
+         #endif
      }
 }
 
@@ -150,6 +153,7 @@
 /**
  * 右边按钮事件: leftVC 和 centerNC 向左偏移
  */
+#if isRightNavigationItemButton
 - (void)rightAction:(UIBarButtonItem *)sender {
 //    UINavigationController *pwNC = self.childViewControllers.lastObject;
 //    LTLeftViewController *leftVC = self.childViewControllers.firstObject;
@@ -169,7 +173,7 @@
         }
     }];
 }
-
+#endif
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

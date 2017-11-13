@@ -14,4 +14,6 @@
 
 #define leftRightVCWidth  (ScreenW * 6 / 7)
 
+#define isRightNavigationItemButton false
+
 #endif /* LTCommon_h */
